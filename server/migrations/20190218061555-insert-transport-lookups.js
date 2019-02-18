@@ -15,32 +15,22 @@ exports.setup = function(options, seedLink) {
 };
 
 exports.up = function(db) {
-  db.createTable('users', {
-    id: { type: 'int', primaryKey: true, autoIncrement: true},
-    name: { type: 'string', unique: true },
-    distance: { type: 'decimal'},
+  db.insert('transport_lookup', ['value'], ['Bike'])
+  db.insert('transport_lookup', ['value'], ['Walk'])
+  db.insert('transport_lookup', ['value'], ['Carpool'])
+  db.insert('transport_lookup', ['value'], ['Other'])
+  return new Promise((resolve, reject) => {
+    resolve("sucess")
   })
+};
 
-  db.createTable('commute_log', {
-    id: { type: 'int', primaryKey: true, autoIncrement: true},
-    user_id: 'int',
-    transport_mode_id: 'int',
-  })
+exports.down = function(db) {
+  db.dropTable('transport_lookup')
 
   db.createTable('transport_lookup', {
     id: { type: 'int', primaryKey: true, autoIncrement: true},
     value: 'string',
   })
-
-  return new Promise((resolve, reject) => {
-    resolve("sucess")
-  })
-}
-
-exports.down = function(db) {
-  db.dropTable('users')
-  db.dropTable('commute_log')
-  db.dropTable('transport_lookup')
 
   return new Promise((resolve, reject) => {
     resolve("sucess")
