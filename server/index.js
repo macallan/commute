@@ -5,7 +5,7 @@ const connection = mysql.createConnection({
   host: 'localhost',
   user: 'commute_user',
   password: 'greenbean',
-  database: 'commute_local',
+  database: 'commute',
 })
 connection.connect()
 
@@ -15,6 +15,13 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
+app.get('/transportation-types', (req, res) => {
+  connection.query('SELECT * FROM transport_lookup', function (error, results, fields) {
+    if (error) throw error;
+    res.send(results)
+  });
+})
+
 app.listen(8000, () => {
-  console.log('Example app listening on port 8000!')
+  console.log('Commute Server is listening on port 8000!')
 })
