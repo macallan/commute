@@ -1,4 +1,14 @@
 const express = require('express')
+const mysql = require('mysql')
+
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'commute_local',
+})
+connection.connect()
+
 const app = express()
 
 app.get('/', (req, res) => {
