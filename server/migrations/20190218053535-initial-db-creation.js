@@ -18,7 +18,7 @@ exports.up = function(db) {
   db.createTable('users', {
     id: { type: 'int', primaryKey: true, autoIncrement: true},
     name: { type: 'string', unique: true },
-    distance: { type: 'decimal'},
+    distance: { type: 'decimal', length: '10, 2'},
   })
 
   db.createTable('commute_log', {

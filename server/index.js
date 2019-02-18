@@ -10,16 +10,27 @@ const connection = mysql.createConnection({
 connection.connect()
 
 const app = express()
+app.use(express.urlencoded())
+
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
 app.get('/transportation-types', (req, res) => {
-  connection.query('SELECT * FROM transport_lookup', function (error, results, fields) {
+  connection.query('SELECT * FROM transport_lookup', (error, results, fields) => {
     if (error) throw error;
     res.send(results)
   });
+})
+
+// Add user
+app.post('/user/new', (req, res) => {
+  user = {name: req.body.name, distance: req.body.distance}
+  connection.query('INSERT INTO users SET ?', user, (error, results, fields) => {
+    if (error) throw error;
+    res.send(results)
+  })
 })
 
 app.listen(8000, () => {
