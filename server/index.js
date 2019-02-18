@@ -24,10 +24,19 @@ app.get('/transportation-types', (req, res) => {
   });
 })
 
-// Add user
+// Create user
 app.post('/user/new', (req, res) => {
   user = {name: req.body.name, distance: req.body.distance}
   connection.query('INSERT INTO users SET ?', user, (error, results, fields) => {
+    if (error) throw error;
+    res.send(results)
+  })
+})
+
+// Create commute
+app.post('/commute/new', (req, res) => {
+  commute = {user_id: req.body.user_id, transport_mode_id: req.body.transport_mode_id}
+  connection.query('INSERT INTO commute_log SET ?', commute, (error, results, fields) => {
     if (error) throw error;
     res.send(results)
   })
