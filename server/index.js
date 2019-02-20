@@ -1,5 +1,7 @@
 const express = require('express')
 const mysql = require('mysql')
+const fs = require('fs')
+const https = require('https')
 
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -10,7 +12,7 @@ const connection = mysql.createConnection({
 connection.connect()
 
 const app = express()
-app.use(express.urlencoded())
+app.use(express.urlencoded({ extended: true }))
 
 
 app.get('/', (req, res) => {
@@ -42,6 +44,9 @@ app.post('/commute/new', (req, res) => {
   })
 })
 
-app.listen(8000, () => {
-  console.log('Commute Server is listening on port 8000!')
+https.createServer({
+  key: fs.readFileSync('cert/server.key'),
+  cert: fs.readFileSync('cert/server.crt')
+}, app).listen(3000, () => {
+  console.log('Commute Server is listening on port 3000!')
 })
