@@ -24,7 +24,8 @@ app.get('/', (req, res) => {
 app.get('/transportation-types', (req, res) => {
   pool.getConnection((err, connection) => {
     connection.query('SELECT * FROM transport_lookup', (error, results, fields) => {
-      if (error) throw error;
+      connection.release()
+      if (error) throw error
       res.send(results)
     });
   })
@@ -35,7 +36,8 @@ app.post('/user/new', (req, res) => {
   pool.getConnection((err, connection) => {
     user = {name: req.body.name, distance: req.body.distance}
     connection.query('INSERT INTO users SET ?', user, (error, results, fields) => {
-      if (error) throw error;
+      connection.release()
+      if (error) throw error
       res.send(results)
     })
   })
@@ -46,6 +48,7 @@ app.post('/commute/new', (req, res) => {
   pool.getConnection((err, connection) => {
     commute = {user_id: req.body.user_id, transport_mode_id: req.body.transport_mode_id}
     connection.query('INSERT INTO commute_log SET ?', commute, (error, results, fields) => {
+      connection.release()
       if (error) throw error;
       res.send(results)
     })
