@@ -3,8 +3,8 @@ const mysql = require('mysql')
 
 var connection
 
-if (process.env.CLEARDB_DATABASE_URL) {
-  connection = mysql.createConnection(process.env.CLEARDB_DATABASE_URL)
+if (process.env.DATABASE_URL) {
+  connection = mysql.createConnection(process.env.DATABASE_URL)
 } else {
   connection = mysql.createConnection({
     host: 'localhost',

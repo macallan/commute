@@ -13,7 +13,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let jsonURLString = "https://localhost:3000/transportation-types/"
+        let jsonURLString = "https://ecocommute.herokuapp.com/transportation-types"
         guard let url = URL(string: jsonURLString) else { return }
         
         URLSession.shared.dataTask(with: url) {(data, response, error) in
