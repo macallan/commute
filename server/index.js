@@ -49,9 +49,6 @@ if (port == null || port == "") {
   port = 8000;
 }
 
-https.createServer({
-  key: fs.readFileSync('cert/server.key'),
-  cert: fs.readFileSync('cert/server.crt')
-}, app).listen(port, () => {
-  console.log('Commute Server is listening on port 3000!')
+app.listen(port, () => {
+  console.log(`Commute Server is listening on port ${port}`)
 })
