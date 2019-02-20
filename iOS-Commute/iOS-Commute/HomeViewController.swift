@@ -20,8 +20,15 @@ class HomeViewController: UIViewController {
             
             guard let data = data else { return }
             
-            let dataAsString = String(data: data, encoding: .utf8)
-            print(dataAsString)
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data) as? [String: String] {
+                    print(json)
+                }
+            } catch let parseError {
+                print("parsing error: \(parseError)")
+                let responseString = String(data: data, encoding: .utf8)
+                print("raw response: \(responseString)")
+            }
         }.resume()
     }
 }
