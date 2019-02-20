@@ -1,7 +1,5 @@
 const express = require('express')
 const mysql = require('mysql')
-const fs = require('fs')
-const https = require('https')
 
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -50,5 +48,5 @@ if (port == null || port == "") {
 }
 
 app.listen(port, () => {
-  console.log(`Commute Server is listening on port ${port}`)
+  console.log('Listening on ' + port)
 })
