@@ -1,12 +1,18 @@
 const express = require('express')
 const mysql = require('mysql')
 
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'commute_user',
-  password: 'greenbean',
-  database: 'commute',
-})
+var connection
+
+if (process.env.DATABASE_URL) {
+  connection = mysql.createConnection(process.env.DATABASE_URL)
+} else {
+  connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'commute_user',
+    password: 'greenbean',
+    database: 'commute',
+  })
+}
 connection.connect()
 
 const app = express()
