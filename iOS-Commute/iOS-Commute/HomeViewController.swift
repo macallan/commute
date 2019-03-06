@@ -21,13 +21,18 @@ class HomeViewController: UIViewController {
             guard let data = data else { return }
             
             do {
-                if let json = try JSONSerialization.jsonObject(with: data) as? [String: String] {
-                    print(json)
+                let jsonResponse = try JSONSerialization.jsonObject(with:
+                    data, options: [])
+                
+                guard let transportationTypes = jsonResponse as? [[String: Any]] else {
+                    return
                 }
-            } catch let parseError {
-                print("parsing error: \(parseError)")
-                let responseString = String(data: data, encoding: .utf8)
-                print("raw response: \(responseString)")
+                
+                transportationTypes.forEach { type in
+                    print(type["value"]!)
+                }
+            } catch let parsingError {
+                print("Error", parsingError)
             }
         }.resume()
     }

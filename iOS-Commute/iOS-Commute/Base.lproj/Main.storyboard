@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,14 +15,70 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="iOS_Commute" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="n0t-2E-odx">
+                                <rect key="frame" x="58" y="164" width="908" height="440"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Cq1-Ae-fhj">
+                                        <rect key="frame" x="0.0" y="0.0" width="908" height="200"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="We8-Dm-mzz" customClass="TransportationTypeView" customModule="iOS_Commute" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="212" height="200"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Walk"/>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="walk"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4mL-a2-90Z" customClass="TransportationTypeView" customModule="iOS_Commute" customModuleProvider="target">
+                                                <rect key="frame" x="696" y="0.0" width="212" height="200"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Bike"/>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="bike"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hZL-eK-3re">
+                                        <rect key="frame" x="0.0" y="240" width="908" height="200"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Gr5-qe-YzY" customClass="TransportationTypeView" customModule="iOS_Commute" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="444" height="200"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Carpool"/>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="carpool"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BNl-zR-XTz" customClass="TransportationTypeView" customModule="iOS_Commute" customModuleProvider="target">
+                                                <rect key="frame" x="464" y="0.0" width="444" height="200"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="labelText" value="Other"/>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="other"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="n0t-2E-odx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5oE-Lp-wm7"/>
+                            <constraint firstItem="n0t-2E-odx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Aye-hU-wQs"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="26.5625" y="17.578125"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bike" width="144" height="144"/>
+        <image name="carpool" width="144" height="144"/>
+        <image name="other" width="144" height="144"/>
+        <image name="walk" width="144" height="144"/>
+    </resources>
 </document>

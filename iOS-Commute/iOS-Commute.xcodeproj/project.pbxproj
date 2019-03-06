@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CAAE39E7221E67E300BC2266 /* TransportationTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAE39E6221E67E300BC2266 /* TransportationTypeView.swift */; };
 		CAC88A34221BBBE0005DB3F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC88A33221BBBE0005DB3F0 /* AppDelegate.swift */; };
 		CAC88A36221BBBE0005DB3F0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC88A35221BBBE0005DB3F0 /* HomeViewController.swift */; };
 		CAC88A39221BBBE0005DB3F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC88A37221BBBE0005DB3F0 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CAAE39E6221E67E300BC2266 /* TransportationTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationTypeView.swift; sourceTree = "<group>"; };
 		CAC88A30221BBBE0005DB3F0 /* iOS-Commute.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Commute.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAC88A33221BBBE0005DB3F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAC88A35221BBBE0005DB3F0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				CAC88A33221BBBE0005DB3F0 /* AppDelegate.swift */,
 				CAC88A35221BBBE0005DB3F0 /* HomeViewController.swift */,
+				CAAE39E6221E67E300BC2266 /* TransportationTypeView.swift */,
 				CAC88A37221BBBE0005DB3F0 /* Main.storyboard */,
 				CAC88A3A221BBBE2005DB3F0 /* Assets.xcassets */,
 				CAC88A3C221BBBE2005DB3F0 /* LaunchScreen.storyboard */,
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAAE39E7221E67E300BC2266 /* TransportationTypeView.swift in Sources */,
 				CAC88A36221BBBE0005DB3F0 /* HomeViewController.swift in Sources */,
 				CAC88A34221BBBE0005DB3F0 /* AppDelegate.swift in Sources */,
 			);
