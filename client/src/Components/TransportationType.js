@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Card, CardBody } from 'reactstrap'
 import './TransportationType.css';
 
 class TransportationType extends Component {
@@ -6,6 +7,7 @@ class TransportationType extends Component {
     super(props)
     this.state = {
       value: null,
+      selected: false,
     }
   }
 
@@ -17,11 +19,9 @@ class TransportationType extends Component {
 
   render() {
     return (
-      <li className="transportation-type">
-        <div className="transportation-type">
-          <button onClick={() => this.transportationTypeSelected()}>{this.props.value.value}</button>
-        </div>
-      </li>
+      <Card>
+        <Button outline color="primary" onClick={() => this.transportationTypeSelected()}>{this.props.value.value}</Button>        
+      </Card>
     );
   }
 }
