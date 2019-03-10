@@ -39,7 +39,6 @@ class SignUp extends Component {
         distance: this.state.distance,
       })
     }).then(response =>  {
-      console.log(response)
       if (response.ok) {
         this.setState({ 
           toHome: true
