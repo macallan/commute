@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Card, CardBody } from 'reactstrap'
+import { Button, Card } from 'reactstrap'
 import './TransportationType.css';
 
 class TransportationType extends Component {
@@ -20,7 +20,7 @@ class TransportationType extends Component {
   render() {
     return (
       <Card>
-        <Button outline color="primary" onClick={() => this.transportationTypeSelected()}>{this.props.value.value}</Button>        
+        <Button outline color="primary" className="transportation-button" onClick={() => this.transportationTypeSelected()}>{this.props.value.value}</Button>        
       </Card>
     );
   }

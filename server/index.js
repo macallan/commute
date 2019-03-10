@@ -1,7 +1,6 @@
 const express = require('express')
 const mysql = require('mysql')
 
-
 var pool
 
 const environment = "DEVELOPMENT"
@@ -21,7 +20,7 @@ if (process.env.DATABASE_URL && environment == "PRODUCTION") {
 
 const app = express()
 app.use(express.urlencoded({ extended: true }))
-
+app.use(express.json())
 /*
   /
   Type: GET
@@ -54,8 +53,9 @@ app.get('/transportation-types', (req, res) => {
 */
 app.post('/user/new', (req, res) => {
   const user = {name: req.body.name, distance: req.body.distance}
+  console.log(req.body)
   pool.query('INSERT INTO users SET ?', user, (error, results, fields) => {
-    if (error) throw error
+    if (error) return res.status(422).send("Duplicate Entry in User table")
     res.send(results)
   })
 })
