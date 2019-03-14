@@ -66,8 +66,15 @@ app.post('/user/new', (req, res) => {
   Input: id
   Output: users that match
 */
-app.get('/user/:id', (req, res) => {
-  pool.query(`SELECT * from users WHERE id = ${req.params.id}`, (error, results, fields) => {
+app.get('/user/id/:id', (req, res) => {
+  pool.query(`SELECT * FROM users WHERE id = ${req.params.id}`, (error, results, fields) => {
+    if (error) throw error
+    res.send(results)
+  })
+})
+
+app.get('/user/all', (req, res) => {
+  pool.query('SELECT name, id FROM users', (error, results, fields) => {
     if (error) throw error
     res.send(results)
   })
@@ -88,7 +95,7 @@ app.post('/commute/new', (req, res) => {
 })
 
 app.get('/commute/user/:id', (req, res) => {
-  pool.query(`SELECT * from commute_log WHERE user_id = ${req.params.id}`, (error, results, fields) => {
+  pool.query(`SELECT * FROM commute_log WHERE user_id = ${req.params.id}`, (error, results, fields) => {
     if (error) throw error
     res.send(results)
   })
